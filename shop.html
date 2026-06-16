@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Lumière — Luxury Home & Furniture Catalogs</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; 
+    
+        font-family:'dana' tahoma;
+        /* font-size:15px; */
+        font-weight: bold;
+        font-style:normal;
+    }
+
+    html {
+    scroll-behavior: smooth;
+    }
+
+    @font-face {
+    font-family: 'dana';
+    src: url('dana-black.woff2') format('woff2'),
+        url('dana-black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #1a2a3a;
+      background: #ffffff;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      border-bottom: 0.5px solid #c5d8ee;
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:0.4rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #042C53;
+      font-family: Arial, sans-serif;
+    }
+    .logo svg{
+    width:28px;
+    height:28px;
+    color:#185FA5;
+    flex-shrink:0;
+}
+    .logo span { color: #185FA5; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      word-spacing: -0.20rem;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: #185FA5;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      font-family:'seo90';
+      font-size:15px;
+    }
+    .nav-links a:hover { color: #042C53; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #E6F1FB 0%, #B5D4F4 60%, #85B7EB 100%);
+      padding: 5rem 2rem;
+      text-align: center;
+      border-bottom: 0.5px solid #c5d8ee;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #185FA5;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+    }
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 400;
+      color: #042C53;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { font-style: italic; font-weight: 300; }
+    .hero p {
+      font-size: 16px;
+      color: #185FA5;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      font-family: Arial, sans-serif;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #0C447C;
+      color: #E6F1FB;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      font-family: Arial, sans-serif;
+    }
+    .btn-primary:hover { background: #042C53; }
+    .btn-outline {
+      background: transparent;
+      color: #042C53;
+      border: 1px solid #0C447C;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      font-family: Arial, sans-serif;
+    }
+    .btn-outline:hover { background: #E6F1FB; }
+
+    /* SECTIONS */
+    .section { padding: 3.5rem 2rem; }
+    .section-title {
+      font-size: 1.2rem;
+      letter-spacing: 0.2em;
+      color: #185FA5;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-family: Arial, sans-serif;
+    }
+    .section-heading {
+      font-size: 28px;
+      font-weight: 400;
+      color: #042C53;
+      margin-bottom: 2rem;
+      line-height: 1.3;
+    }
+
+    /* CATALOG GRID */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+    }
+    .catalog-card {
+      background: #ffffff;
+      border: 0.5px solid #c5d8ee;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .catalog-card:hover {
+      border-color: #378ADD;
+      box-shadow: 0 4px 16px rgba(21, 95, 165, 0.1);
+    }
+    .card-thumb {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+    }
+    .t1 { background: #E6F1FB; }
+    .t2 { background: #B5D4F4; }
+    .t3 { background: #dce8f5; }
+    .t4 { background: #cfe0f5; }
+    .card-info { padding: 1rem 1.25rem 1.25rem; }
+    .card-season {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: #185FA5;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+    }
+    .card-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0.3rem 0 0.5rem;
+      color: #042C53;
+      font-family: Arial, sans-serif;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: #4a6a8a;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-family: Arial, sans-serif;
+    }
+    .card-actions { display: flex; gap: 0.5rem; }
+    .card-btn {
+      flex: 1;
+      padding: 0.5rem;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 0.5px solid #378ADD;
+      background: transparent;
+      color: #185FA5;
+      font-family: Arial, sans-serif;
+    }
+    .card-btn:hover { background: #E6F1FB; }
+    .card-btn.dark {
+      background: #0C447C;
+      color: #E6F1FB;
+      border-color: #0C447C;
+    }
+    .card-btn.dark:hover { background: #042C53; }
+
+    /* FEATURES */
+    .features { background: #E6F1FB; }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+    .feat-item { text-align: center; padding: 1.5rem 1rem; }
+    .feat-icon {
+      font-size: 32px;
+      margin-bottom: 0.75rem;
+    }
+    .feat-label {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #042C53;
+      font-family: Arial, sans-serif;
+    }
+    .feat-desc {
+      font-size: 13px;
+      color: #185FA5;
+      line-height: 1.6;
+      font-family: Arial, sans-serif;
+    }
+
+    /* CONTACT */
+    .contact-section { border-top: 0.5px solid #c5d8ee; }
+    .contact-box {
+      max-width: 540px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 0.5px solid #c5d8ee;
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .form-row { margin-bottom: 1rem; }
+    .form-row label {
+      display: block;
+      font-size: 12px;
+      color: #185FA5;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+    }
+    .form-row input,
+    .form-row textarea,
+    .form-row select {
+      width: 100%;
+      font-size: 14px;
+      border: 0.5px solid #378ADD;
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      background: #ffffff;
+      color: #1a2a3a;
+      font-family: Arial, sans-serif;
+      outline: none;
+    }
+    .form-row input:focus,
+    .form-row textarea:focus,
+    .form-row select:focus {
+      border-color: #0C447C;
+      box-shadow: 0 0 0 3px rgba(12, 68, 124, 0.12);
+    }
+    .form-row textarea { min-height: 90px; resize: vertical; }
+    .submit-btn {
+      width: 100%;
+      background: #0C447C;
+      color: #E6F1FB;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      margin-top: 0.5rem;
+      font-family: Arial, sans-serif;
+    }
+    .submit-btn:hover { background: #042C53; }
+
+    /* FOOTER */
+    footer {
+      padding: 1.5rem 2rem;
+      border-top: 0.5px solid #c5d8ee;
+      background: #042C53;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 12px;
+      color: #85B7EB;
+      font-family: Arial, sans-serif;
+    }
+    .footer-brand {
+      display:flex;
+      align-items:center;
+      gap:0.4rem;
+      font-size: 15px;
+      font-weight: 700;
+      color: #E6F1FB;
+      letter-spacing: 0.08em;
+    }
+    .footer-brand svg{
+    width:20px;
+    height:20px;
+    }
+    .number-phone {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        font-family: Arial, sans-serif;
+    }
+    .number-phone a{
+        text-decoration: none;
+        color:#185FA5;
+        border: #378ADD solid 0.1rem;
+        border-radius: 0.4rem;
+        padding: 0.5rem;
+        font-family: Arial, sans-serif;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        transition: 0.2s;
+
+    }
+    .number-phone a:hover{
+        background-color: #e6f1fb;
+        
+    }
+
+    .diamond-ico{
+    width: 1.5rem;
+    height: 0.9rem;
+    }
+    .top-bubble {
+  position: fixed;
+  bottom: 1rem;
+  right: 1.2rem;
+
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+
+  background: #0C447C;
+  color: #E6F1FB;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  text-decoration: none;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+
+  transition: 0.3s ease;
+}
+
+.top-bubble:hover {
+  background: #042C53;
+  transform: scale(1.1);
+}
+
+.mail-link{
+    text-decoration: none;
+    color: #185FA5;
+}
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      nav { flex-direction: column; gap: 1rem; }
+      .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+      .hero h1 { font-size: 28px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+    <a id="top"></a>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+    رویال شاپ
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="1.5rem" height="1.5rem"> <path d="M48.848,9.189C37.926,9.072,15.087,9.015,15.087,9.015L0.301,26.059l31.694,33.478l31.889-33.464C63.884,26.072,53.341,14.155,48.848,9.189z M43.08,21.15l-7.195-8.232c3.388-0.028,6.775-0.057,10.171-0.097L43.08,21.15z M39.26,23.75c-2.26,0.03-4.51,0.06-6.76,0.11l-8.79,0.17l8.23-10.29L39.26,23.75z M50.023,16.557c1.803,2.354,3.607,4.687,5.403,6.996L53.12,23.58l-5.63,0.07L50.023,16.557z M16.915,13.011c3.793-0.002,7.584-0.02,11.375-0.04l-7.78,9.719l-2.8-7.29l-2.34,3.22l2.13,5.54l-6.29,0.17L10,26l1.11,1.66l7.64,0.21l13.75,0.27c4.58,0.1,9.17,0.13,13.75,0.19l6.87,0.09l1.786,0.021L39.084,45.859L45.51,30.91l-5.37-0.18l-8.23,19.15l-9.23-19.75L19.06,30l6.792,17.23L5.698,25.941L16.915,13.011z" fill="currentColor"/> </svg>
+</div>
+    <div class="nav-links">
+      <a class="link-nav" href="#catalogs">کاتالوگ ها</a>
+      <a class="link-nav" href="#features">ویژگی ها</a>
+      <a class="link-nav" href="#contact">سفارش</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <p class="hero-eyebrow">طراحی کاتالوگ و بروشور</p>
+    <h1>Royal Shop<h2>طراحی زیبا و منحصر به فرد</h2></h1>
+    <p>طراح مورد نظر را برای محصولات خود انتخاب کنید و سفارش بدهید</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('catalogs').scrollIntoView({behavior:'smooth'})">مشاهده کاتالوگ ها</button>
+      <!-- <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Download Preview</button> -->
+    </div>
+  </div>
+
+  <!-- Catalogs -->
+  <div class="section" id="catalogs">
+    <p class="section-title">کاتالوگ ها</p>
+    <h2 class="section-heading">قالب های موجود :</h2>
+    <div class="catalog-grid">
+
+      <div class="catalog-card">
+        <div class="card-thumb t1">🛋️</div>
+        <div class="card-info">
+          <p class="card-season">Spring / Summer 2025</p>
+          <p class="card-name">کاتالوگ شماره 1</p>
+          <p class="card-desc">این کاتالوگ مناسب دوش های حمام و انواع شیلنگ ها میباشد</p>
+          <div class="card-actions">
+            <!-- <button class="card-btn">Preview</button> -->
+            <button class="card-btn dark">دانلود</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <div class="card-thumb t2">🛏️</div>
+        <div class="card-info">
+          <p class="card-season">Autumn / Winter 2025</p>
+          <p class="card-name">کاتالوگ شماره 2</p>
+          <p class="card-desc">این کاتالوگ مناسب دوش های حمام و انواع شیلنگ ها میباشد</p>
+          <div class="card-actions">
+            <!-- <button class="card-btn">Preview</button> -->
+            <button class="card-btn dark">دانلود</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <div class="card-thumb t3">🍽️</div>
+        <div class="card-info">
+          <p class="card-season">Year-Round Edition</p>
+          <p class="card-name">کاتالوگ شماره 3</p>
+          <p class="card-desc">این کاتالوگ مناسب دوش های حمام و انواع شیلنگ ها میباشد</p>
+          <div class="card-actions">
+            <!-- <button class="card-btn">Preview</button> -->
+            <button class="card-btn dark">دانلود</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <div class="card-thumb t4">🪴</div>
+        <div class="card-info">
+          <p class="card-season">Special Edition</p>
+          <p class="card-name">کاتالوگ شماره 4</p>
+          <p class="card-desc">این کاتالوگ مناسب دوش های حمام و انواع شیلنگ ها میباشد</p>
+          <div class="card-actions">
+            <!-- <button class="card-btn">Preview</button> -->
+            <button class="card-btn dark">دانلود</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<div class="section features" id="features">
+    <div class="feat-grid">
+      <div class="feat-item">
+        <div class="feat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <p class="feat-label">وضوح عالی</p>
+        <p class="feat-desc">قبل از سفارش دادن به وضوح بالای کاتالوگ ها دقت کنید</p>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </div>
+        <p class="feat-label">ذخیره کردن کاتالوگ</p>
+        <p class="feat-desc">کاتالوگ ها را به صورت مستقیم در دستگاه خود ذخیره کنید</p>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"/>
+            <polyline points="1 20 1 14 7 14"/>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+          </svg>
+        </div>
+        <p class="feat-label">همیشه به‌روز</p>
+        <p class="feat-desc">کاتالوگ های جدید برای هر ماه</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section contact-section" id="contact">
+    <h2 class="section-heading" style="text-align:center; margin-bottom:1.5rem;">جهت ثبت سفارش</h2>
+    <p class="section-title" style="text-align:center;">پیام دهید و یا تماس بگیرید</p>
+    <br>
+    <p class="number-phone">
+        <a href="tel:+989199819764">
+
+            <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.833 4h4.49L9.77 7.618l-2.325 1.55A1 1 0 0 0 7 10c.003.094 0 .001 0 .001v.021a2.026 2.026 0 0 0 .006.134c.006.082.016.193.035.33.039.27.114.642.26 1.08.294.88.87 2.019 1.992 3.141 1.122 1.122 2.261 1.698 3.14 1.992.439.146.81.22 1.082.26a4.43 4.43 0 0 0 .463.04l.013.001h.008s.112-.006.001 0a1 1 0 0 0 .894-.553l.67-1.34 4.436.74v4.32c-2.111.305-7.813.606-12.293-3.874C3.227 11.813 3.527 6.11 3.833 4zm5.24 6.486l1.807-1.204a2 2 0 0 0 .747-2.407L10.18 3.257A2 2 0 0 0 8.323 2H3.781c-.909 0-1.764.631-1.913 1.617-.34 2.242-.801 8.864 4.425 14.09 5.226 5.226 11.848 4.764 14.09 4.425.986-.15 1.617-1.004 1.617-1.913v-4.372a2 2 0 0 0-1.671-1.973l-4.436-.739a2 2 0 0 0-2.118 1.078l-.346.693a4.71 4.71 0 0 1-.363-.105c-.62-.206-1.481-.63-2.359-1.508-.878-.878-1.302-1.739-1.508-2.36a4.59 4.59 0 0 1-.125-.447z" fill="#0D0D0D"/>
+            </svg>
+
+
+        </a>
+    <a href="mailto:amirmmhh1387pc@gmail.com">
+        
+        <svg fill="#000000" width="1rem" height="1rem" viewBox="0 0 36 36" version="1.1"  preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <title>email-line</title>
+        <path class="clr-i-outline clr-i-outline-path-1" d="M32,6H4A2,2,0,0,0,2,8V28a2,2,0,0,0,2,2H32a2,2,0,0,0,2-2V8A2,2,0,0,0,32,6ZM30.46,28H5.66l7-7.24-1.44-1.39L4,26.84V9.52L16.43,21.89a2,2,0,0,0,2.82,0L32,9.21v17.5l-7.36-7.36-1.41,1.41ZM5.31,8H30.38L17.84,20.47Z"></path>
+        <rect x="0" y="0" width="36" height="36" fill-opacity="0"/>
+        </svg>
+    </a>
+
+
+
+    <a href="https://www.instagram.com/imamir_ig/">
+        
+        <svg fill="#000000" width="1rem" height="1rem" viewBox="-2 -2 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin" class="jam jam-instagram"><path d='M14.017 0h-8.07A5.954 5.954 0 0 0 0 5.948v8.07a5.954 5.954 0 0 0 5.948 5.947h8.07a5.954 5.954 0 0 0 5.947-5.948v-8.07A5.954 5.954 0 0 0 14.017 0zm3.94 14.017a3.94 3.94 0 0 1-3.94 3.94h-8.07a3.94 3.94 0 0 1-3.939-3.94v-8.07a3.94 3.94 0 0 1 3.94-3.939h8.07a3.94 3.94 0 0 1 3.939 3.94v8.07z'/><path d='M9.982 4.819A5.17 5.17 0 0 0 4.82 9.982a5.17 5.17 0 0 0 5.163 5.164 5.17 5.17 0 0 0 5.164-5.164A5.17 5.17 0 0 0 9.982 4.82zm0 8.319a3.155 3.155 0 1 1 0-6.31 3.155 3.155 0 0 1 0 6.31z'/><circle cx='15.156' cy='4.858' r='1.237'/></svg>
+
+    </a>
+
+
+</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+        <span class="footer-brand">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="1.5rem" height="1.5rem"> <path d="M48.848,9.189C37.926,9.072,15.087,9.015,15.087,9.015L0.301,26.059l31.694,33.478l31.889-33.464C63.884,26.072,53.341,14.155,48.848,9.189z M43.08,21.15l-7.195-8.232c3.388-0.028,6.775-0.057,10.171-0.097L43.08,21.15z M39.26,23.75c-2.26,0.03-4.51,0.06-6.76,0.11l-8.79,0.17l8.23-10.29L39.26,23.75z M50.023,16.557c1.803,2.354,3.607,4.687,5.403,6.996L53.12,23.58l-5.63,0.07L50.023,16.557z M16.915,13.011c3.793-0.002,7.584-0.02,11.375-0.04l-7.78,9.719l-2.8-7.29l-2.34,3.22l2.13,5.54l-6.29,0.17L10,26l1.11,1.66l7.64,0.21l13.75,0.27c4.58,0.1,9.17,0.13,13.75,0.19l6.87,0.09l1.786,0.021L39.084,45.859L45.51,30.91l-5.37-0.18l-8.23,19.15l-9.23-19.75L19.06,30l6.792,17.23L5.698,25.941L16.915,13.011z" fill="currentColor"/> </svg>
+    ROYAL SHOP
+</span>
+    <span>© 2026 All rights reserved</span>
+    <span><a class="mail-link" href="mailto:amirmmhh1387pc@gmail.com">amirmmhh1387pc@gmail.com</a></span>
+  </footer>
+<a href="#top" class="top-bubble">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License: CC Attribution. Made by iconhub: https://iconhub.io -->
+<svg fill="#000000" width="2rem" height="2rem" viewBox="0 0 24 24" id="up" data-name="Multi Color" xmlns="http://www.w3.org/2000/svg" class="icon multi-color"><title style="stroke-width: 2;">up</title><path id="primary-stroke" d="M5,10l7-7,7,7M12,3V21" style="fill: none; stroke: #fff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
+
+</a>
+</body>
+</html>
